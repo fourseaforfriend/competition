@@ -11,9 +11,11 @@ xgboost
 plotly
 ```
 ## How to Install
+```bash
 pip install lightgbm -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install xgboost -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install plotly -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ## run
 ```bash
