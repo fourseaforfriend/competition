@@ -37,10 +37,10 @@ stats_df.sort_values('Percentage of missing values', ascending=False)[:10]
 
 stats = []
 for col in test.columns:
-    stats.append((col, test[col].nunique(), test[col].isnull().sum() * 100 / test.shape[0], test[col].value_counts(normalize=True, dropna=False).values[0] * 100, test[col].dtype))
+    stats.append((col, test[col].nunique(), test[col].isnull().sum() * 100 / test.shape[0], test[col].value_counts(normalize=True, dropna=False).values[0] * 100, train[col].dtype))
     
 stats_df = pd.DataFrame(stats, columns=['Feature', 'Unique_values', 'Percentage of missing values', 'Percentage of values in the biggest category', 'type'])
-stats_df.sort_values('Percentage of missing values', ascending=False)[:10]
+stats_df.sort_values('Percentage of missing values', ascending=False)[:20]
 
 target_col = "收率"
 
@@ -118,9 +118,9 @@ def getDuration(se):
 for f in ['A20','A28','B4','B9','B10','B11']:
     data[f] = data.apply(lambda df: getDuration(df[f]), axis=1)
 
-data['sampleid'] = data['sampleid'].apply(lambda x: int(x.split('_')[1]))
+data['样本id'] = data['样本id'].apply(lambda x: int(x.split('_')[1]))
 
-categorical_columns = [f for f in data.columns if f not in ['sampleid']]
+categorical_columns = [f for f in data.columns if f not in ['样本id']]
 numerical_columns = [f for f in data.columns if f not in categorical_columns]
 
 #label encoder
@@ -242,4 +242,3 @@ mean_squared_error(target.values, oof_stack)
 sub_df = pd.read_csv('./jinnan_round1_submit_20181227.csv', header=None)
 sub_df[1] = predictions
 sub_df[1] = sub_df[1].apply(lambda x:round(x, 3))
-
