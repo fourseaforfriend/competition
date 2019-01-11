@@ -1,6 +1,6 @@
-# competition
+# Competition
 
-## enviroments
+## Enviroments
 ```bash
 python3.6
 
@@ -17,7 +17,7 @@ pip install xgboost -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install plotly -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-## run
+## Run
 ```bash
 python test.py
 ```
